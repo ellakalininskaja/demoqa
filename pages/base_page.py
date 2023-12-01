@@ -15,7 +15,25 @@ class BasePage:
     def get_url(self):
         return self.driver.current_url
 
+    def get_title(self):
+        return self.driver.title
+
     def equal_url(self):
         if self.get_url() == self.base_url:
             return True
         return False
+
+    def back(self):
+        self.driver.back()
+
+    def forward(self):
+        self.driver.forward()
+
+    def refresh(self):
+        self.driver.refresh()
+
+
+
+
+
+#здесь храним методы для всех страниц

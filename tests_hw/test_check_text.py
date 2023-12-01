@@ -22,3 +22,14 @@ def test_check_text_elements(browser):
     demo_qa_page.btn_elements.click()
 
     assert text_equals(el_page.elements_empty_page_text.get_text(), const_elements_empty_page_text)
+
+def test_page_elements(browser):
+    el_page = Elements(browser)
+    el_page.visit()
+
+    assert el_page.text_elements.get_text() == "Elements"
+
+    assert el_page.icon.exist()
+    assert el_page.btn_sidebar_first.exist()
+    assert el_page.btn_sidebar_first_textbox.exist()
+
