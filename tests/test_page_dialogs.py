@@ -9,7 +9,8 @@ def test_find_modal_elements(browser):
     modal = Modal_dialogs(browser)
     modal.visit()
 
-    assert modal.accordion_menu_alerts_btns.check_count_elements(countItems=5)
+    assert modal.accordion_menu_alerts_btns.check_count_elements(count_items=5)
+    modal.all_btns.find_elements()
 
 
 def test_navigation_modal(browser):
@@ -29,3 +30,4 @@ def test_navigation_modal(browser):
 
     assert demo_qa_page.equal_url()
     assert browser.title == const_main_page_title
+    browser.set_window_size(1000, 1000)
