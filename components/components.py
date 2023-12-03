@@ -1,5 +1,3 @@
-from itertools import count
-
 from selenium.webdriver.common.by import By
 from selenium.common import NoSuchElementException
 
@@ -31,8 +29,8 @@ class WebElement:
     def visible(self):
         return self.find_element().is_displayed()
 
-    def check_count_elements(self, countItems: int) -> bool:
-        if len(self.find_elements()) == countItems:
+    def check_count_elements(self, count_items: int) -> bool:
+        if len(self.find_elements()) == count_items:
             return True
         return False
 
