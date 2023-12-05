@@ -20,7 +20,7 @@ class WebElement:
         self.find_element().click()
 
     def click_force(self):
-        self.driver.execute_script("arguments[0].click();", self.find_element())  # JS код, принудительный клик
+        self.driver.execute_script("const [currentElement] = arguments; currentElement.click()", self.find_element())  # JS код, принудительный клик
 
     def exist(self):
         try:
