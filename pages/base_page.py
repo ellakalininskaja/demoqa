@@ -1,3 +1,5 @@
+import logging
+
 from selenium.webdriver.common.by import By
 
 
@@ -32,10 +34,11 @@ class BasePage:
     def refresh(self):
         self.driver.refresh()
 
+    def alert(self):
+        try:
+            return self.driver.switch_to.alert
+        except Exception as ex:
+            logging.log(1, ex)
+            return False
 
-
-
-
-
-
-#здесь храним методы для всех страниц
+# здесь храним методы для всех страниц

@@ -3,7 +3,6 @@ from selenium.common import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 
 
-
 class WebElement:
     def __init__(self, driver, locator="", locator_type="css"):
         self.driver = driver
@@ -20,7 +19,8 @@ class WebElement:
         self.find_element().click()
 
     def click_force(self):
-        self.driver.execute_script("const [currentElement] = arguments; currentElement.click()", self.find_element())  # JS код, принудительный клик
+        self.driver.execute_script("const [currentElement] = arguments; currentElement.click()",
+                                   self.find_element())  # JS код, принудительный клик
 
     def exist(self):
         try:
@@ -74,9 +74,12 @@ class WebElement:
             return False
 
     def scroll_to_element(self):
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);", self.find_element()
-)
+        self.driver.execute_script(
+            "window.scrollTo(0, document.body.scrollHeight);",
+            self.find_element()
+        )
 
-
+    def check_css(self, style, value=""):
+        return self.find_element().value_of_css_property(style) == value
 
 # методы, которые нужны для элементов
