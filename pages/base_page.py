@@ -1,4 +1,5 @@
 import logging
+from components.components import WebElement
 
 from selenium.webdriver.common.by import By
 
@@ -7,6 +8,8 @@ class BasePage:
     def __init__(self, driver, base_url):
         self.driver = driver
         self.base_url = base_url
+        # self.viewport = WebElement(driver, "head > meta")
+        self.viewport = WebElement(driver, "//*[contains(@name, 'viewport')]", "xpath")
 
     def visit(self):
         return self.driver.get(self.base_url)
